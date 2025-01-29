@@ -87,7 +87,7 @@
                    li.appendChild(label);
                    devicesList.appendChild(li);
 
-                   cb.addEventListener('click', (event, cb, device) => {
+                   cb.addEventListener('click', (event) => {
                        if (isWebBluetoothEnabled()) {
                            if (cb.checked) {
                                connectToDevice2(cb, device);
