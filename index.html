@@ -73,12 +73,12 @@
             navigator.bluetooth.getDevices().then(devices => {
                devices.forEach(device => {
                    let li = document.createElement('li');
-                   let label = document.createElement('label').classList.add('switch');
+                   let label = Object.assign(document.createElement('label'), { classname: 'switch'});
                    let cb = document.createElement('input');
                    
                    cb.type = "checkbox";
                    label.appendChild(cb);
-                   label.appendChild(document.createElement('span').classList.add('slider').classList.add('round'));
+                   label.appendChild(Object.assign(document.createElement('span'), {classname: 'slider round'}));
                    li.appendChild(document.createTextNode(device.name));
                    li.appendChild(label);
                    devicesList.appendChild(li); 
