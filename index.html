@@ -137,7 +137,6 @@
             optionalServices: [bleService]
         })
         .then(device => {
-            console.log(device);
             console.log('Device Selected:', device.name);
             bleStateContainer.innerHTML = 'Connected to device ' + device.name;
             bleStateContainer.style.color = "#24af37";
@@ -177,9 +176,8 @@
     function connectToDevice2(cb, device){
         console.log('Initializing Bluetooth...');
 
-        new Promise(() => {
-            console.log(device);
-            return device;
+        new Promise((resolve, reject) => {
+            resolve(device);
         })
         .then(device => {
             console.log('Device Selected:', device.name);
