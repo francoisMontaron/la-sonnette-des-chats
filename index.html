@@ -68,7 +68,7 @@
     var bleServiceFound;
     var sensorCharacteristicFound;
 
-    if (isWebBluetoothEnabled() {
+    if (isWebBluetoothEnabled()) {
         navigator.bluetooth.getDevices().then(devices => {
            devices.forEach(device => {
                let li = document.createElement('li');
