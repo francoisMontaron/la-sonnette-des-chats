@@ -91,10 +91,7 @@
     // Connect to BLE Device and Enable Notifications
     function connectToDevice(){
         console.log('Initializing Bluetooth...');
-        navigator.bluetooth.getDevices({
-            filters: [{name: deviceName}],
-            optionalServices: [bleService]
-        })
+        navigator.bluetooth.getDevices()
         .then(device => {
             console.log('Device Selected:', device.name);
             bleStateContainer.innerHTML = 'Connected to device ' + device.name;
