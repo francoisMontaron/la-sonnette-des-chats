@@ -69,13 +69,13 @@
     var sensorCharacteristicFound;
 
     if (isWebBluetoothEnabled()) {
-        navigator.bluetooth.getDevices().then(devices => {
-           devices.forEach(device => {
-               let li = document.createElement('li');
-               li.appendChild(document.createTextNode(device.name));
-               devicesList.appendChild(li); 
-           });
-        });
+        //navigator.bluetooth.getDevices().then(devices => {
+        //   devices.forEach(device => {
+        //       let li = document.createElement('li');
+        //       li.appendChild(document.createTextNode(device.name));
+        //       devicesList.appendChild(li); 
+        //   });
+        //});
     }
 
     // Connect Button (search for BLE Devices only if BLE is available)
