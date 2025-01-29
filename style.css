@@ -38,6 +38,10 @@ button {
     border-radius: 4px;
 }
 
+.devicesList{
+    list-style-type: none;
+}
+
 .onButton{
     background-color: #1b8a94;
 }
