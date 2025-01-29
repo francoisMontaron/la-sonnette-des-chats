@@ -40,6 +40,8 @@ button {
 
 #devicesList{
     list-style-type: none;
+    margin: auto 0;
+    padding: 0;
 }
 
 .onButton{
