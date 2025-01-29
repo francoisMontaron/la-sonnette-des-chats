@@ -95,8 +95,7 @@
         var devices = navigator.bluetooth.getDevices();
         console.log(devices);
         navigator.bluetooth.requestDevice({
-            //filters: [{name: deviceName}],
-            acceptAllDevices: false,
+            filters: [{namePrefix: deviceName}],
             optionalServices: [bleService]
         })
         .then(device => {
