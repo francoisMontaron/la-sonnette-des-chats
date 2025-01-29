@@ -83,16 +83,19 @@
                    cb.type = "checkbox";
                    label.appendChild(cb);
                    label.appendChild(span);
-
-                   label.addEventListener('click', (cb, device) => {
-                       if (cb.checked) {
-                           connectToDevice2(device);
-                       }
-                   });
-                   
                    li.appendChild(document.createTextNode(device.name));
                    li.appendChild(label);
-                   devicesList.appendChild(li); 
+                   devicesList.appendChild(li);
+
+                   cb.addEventListener('click', (event, cb, device) => {
+                       if (isWebBluetoothEnabled()) {
+                           if (cb.checked) {
+                               connectToDevice2(cb, device);
+                           }
+                       } else {
+                           cb.checked = false;
+                       }
+                   });
                });
             });
         } catch(err) {
@@ -170,7 +173,7 @@
     }
 
     // Connect to BLE Device and Enable Notifications
-    function connectToDevice2(device){
+    function connectToDevice2(cb, device){
         console.log('Initializing Bluetooth...');
 
         new Promise((device) => {
@@ -209,6 +212,7 @@
         })
         .catch(error => {
             console.log('Error: ', error);
+            cb.checked = false;
         })
     }
 
