@@ -19,6 +19,10 @@
                     <button id="connectBleButton" class="connectButton"> Connect to BLE Device</button>
                     <button id="disconnectBleButton" class="disconnectButton"> Disconnect BLE Device</button>
                 </p>
+                <p>
+                    <ul id="devicesList">
+                    </ul>
+                </p>
                 <p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>
             </div>
         </div>
@@ -45,6 +49,7 @@
     // DOM Elements
     const connectButton = document.getElementById('connectBleButton');
     const disconnectButton = document.getElementById('disconnectBleButton');
+    const devicesList = document.getElementById('devicesList');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
     const retrievedValue = document.getElementById('valueContainer');
@@ -62,6 +67,16 @@
     var bleServer;
     var bleServiceFound;
     var sensorCharacteristicFound;
+
+    if (isWebBluetoothEnabled() {
+        navigator.bluetooth.getDevices().then(devices => {
+           devices.forEach(device => {
+               let li = document.createElement('li');
+               li.appendChild(document.createTextNode(device.name));
+               devicesList.appendChild(li); 
+           });
+        });
+    }
 
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
